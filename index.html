@@ -9,92 +9,221 @@
 
 <body>
     <!-- navbar -->
-    <nav class="nav justify-content-around mb-5 bg-color">
-		<a class="nav-link font-weight-bold" href="#">To-do App</a>
-		<a class="nav-link d-none d-sm-inline" href="#">Categories</a>
-		<a class="nav-link d-none d-sm-inline" href="#">Help</a>
-		<button class="btn btn-dark"><a>sign in</a></button>
-	</nav>
-	<!-- end of navbar -->
-
-	<div class="container">
-		<div class="row justify-content-between">
-			<div class="col-sm-3 bg-info">
-				123
-			</div>
-
-			<!-- reminder section -->
-			<div class="col-sm-3 bg-color rounded text-white p-3 my-3 my-sm-0 h-50" id="remind">
-				<h4><i class="fa-solid fa-circle-exclamation"></i> Reminder</h4>
-				<div id="remind-carousel" class="carousel slide" data-ride="carousel">
-				    <div class="carousel-inner">
-				    	<!-- slide 1 -->
-				        <div class="carousel-item active" data-interval="3000">
-				        	<div class="blink bg-danger p-2">You have a task due in 2 days! Don't forget to pay attention.</div>
-				            <div class="card-body">
-				            	<h5 class="card-title">Add Reminder carousel</h5>
-						        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						    </div>
-						    <ul class="list-group list-group-flush text-dark">
-								<li class="list-group-item"><span class="font-weight-bold">created:</span> Tony on Jun 16</li>
-								<li class="list-group-item"><span class="font-weight-bold">category:</span> assessment 2</li>
-							</ul>
-				        </div>
-				        <!-- slide 2 -->
-				        <div class="carousel-item" data-interval="3000">
-				        	<div class="p-2">Your team finished 3 tasks this week! Keep it up!</div>
-				            <ul class="list-group list-group-flush text-dark">
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-user"></i> Add navbar <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-face-smile"></i> Create basic layout <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-face-smile"></i> Add stylesheet <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-							</ul>
-				        </div>
-				        <!-- slide 3 -->
-				        <div class="carousel-item" data-interval="3000">
-				        	<div class="p-2">Take note of your team's 2 upcoming tasks:</div>
-				        	<button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
-				        		<table class="table table-light table-bordered border-primary">
-				        			<tbody>
-				        				<tr>
-				        					<td><i class="fa-solid fa-circle-user"></i></td>
-				        					<td>Feedback to Designer</td>
-									        <td>May 13</td>
-									    </tr>
-								    </tbody>	
-							    </table>
-						    </button>
-						    <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
-				        		<table class="table table-light table-bordered border-primary">
-				        			<tbody>
-				        				<tr>
-				        					<td><i class="fa-solid fa-circle-user"></i></td>
-				        					<td>Feedback to Designer</td>
-									        <td>May 13</td>
-									    </tr>
-								    </tbody>	
-							    </table>
-						    </button>
-				        </div>
-				    </div>
+		<nav class="nav mb-5" style="background-color: #8BBDF8;">
+			<a class="nav-link active" href="#">Your works</a>
+			<a class="nav-link" href="#">Catgories</a>
+			<a class="nav-link" href="#">Help</a>
+			<a class="nav-link" href="#">Blog</a>
+			<form>
+			  <button class="btn btn-sm btn-outline-secondary bg-light " type="button; vertical-align:middle;">Sign up</button>
+			  <button class="btn btn-sm btn-outline-secondary bg-light " type="button; vertical-align:middle;">Log in</button>
+			</form>
+		  </nav>
+    <!-- end of navbar -->
+  
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-sm-3 bg-info">
+					123
 				</div>
-			</div>
-			<!-- end of reminder section -->
 
-			<div class="col-sm-5 bg-danger">
-				123
+        <!-- reminder section -->
+        <div class="col-sm-3 bg-color rounded text-white p-3 my-3 my-sm-0 h-50" id="remind">
+          <h4><i class="fa-solid fa-circle-exclamation"></i> Reminder</h4>
+          <div id="remind-carousel" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <!-- slide 1 -->
+                  <div class="carousel-item active" data-interval="3000">
+                    <div class="blink bg-danger p-2">You have a task due in 2 days! Don't forget to pay attention.</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Add Reminder carousel</h5>
+                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </div>
+                  <ul class="list-group list-group-flush text-dark">
+                  <li class="list-group-item"><span class="font-weight-bold">created:</span> Tony on Jun 16</li>
+                  <li class="list-group-item"><span class="font-weight-bold">category:</span> assessment 2</li>
+                </ul>
+                  </div>
+                  <!-- slide 2 -->
+                  <div class="carousel-item" data-interval="3000">
+                    <div class="p-2">Your team finished 3 tasks this week! Keep it up!</div>
+                      <ul class="list-group list-group-flush text-dark">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-user"></i> Add navbar <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-face-smile"></i> Create basic layout <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-face-smile"></i> Add stylesheet <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                </ul>
+                  </div>
+                  <!-- slide 3 -->
+                  <div class="carousel-item" data-interval="3000">
+                    <div class="p-2">Take note of your team's 2 upcoming tasks:</div>
+                    <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
+                      <table class="table table-light table-bordered border-primary">
+                        <tbody>
+                          <tr>
+                            <td><i class="fa-solid fa-circle-user"></i></td>
+                            <td>Feedback to Designer</td>
+                            <td>May 13</td>
+                        </tr>
+                      </tbody>	
+                    </table>
+                  </button>
+                  <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
+                      <table class="table table-light table-bordered border-primary">
+                        <tbody>
+                          <tr>
+                            <td><i class="fa-solid fa-circle-user"></i></td>
+                            <td>Feedback to Designer</td>
+                            <td>May 13</td>
+                        </tr>
+                      </tbody>	
+                    </table>
+                  </button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- end of reminder section -->
+        
+        <!-- task list section -->
+				<div class="col-sm-5" style="background-color: #8BBDF8; padding:20px;">
+					<section id="task-list">
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+						  <div class="card-header" id="headingOne" style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #F8C67B;">
+								<table class="table table-light  table-bordered border-primary">
+									<tbody>
+										<tr>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Home Page Review Meeting</td>
+										  <td>13 July 15:00</td>
+										  <td class="bg-warning">Medium Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+					  
+						  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div class="card-body" >
+								View the prior ratings of the reviewees if enabled in the Talent Review meeting template.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+						  <div class="card-header" id="headingTwo" style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #F8C67B;">
+								<table class="table table-light table-bordered border-primary">
+									<tbody>
+										<tr>
+										<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Send Feedback to Designer</td>
+										  <td>13 May 15:00</td>
+										  <td class="bg-success">Low Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+							<div class="card-body">
+								Be prepared to explain your thinking. Set a process and clear expectations.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+						  <div class="card-header" id="headingThree"  style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<table class="table table-light  table-bordered border-primary">
+									<tbody>
+										<tr>
+											<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Weekly Check In Call</td>
+										  <td>18 May 21:00</td>
+										  <td class="bg-warning">Medium Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+						  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							<div class="card-body">
+							  Bboost productivity of both managers and employees. Allow for fast resolution of issues.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingThree" style="background-color: #F8C67B;" >
+							  <h2 class="mb-0">
+								<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<table class="table table-light  table-bordered border-primary">
+										<tbody>
+											<tr>
+												<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+											  <td>Approve Invoices</td>
+											  <td>23 July 11:00</td>
+											  <td class="bg-danger">High Priority</td>
+											  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+											</tr>
+										</tbody>	
+									</table>
+								</button>
+							  </h2>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							  <div class="card-body">
+								Check the Invoice for Accuracy. Confirm the Work with the Project Manager.
+							  </div>
+							</div>
+						  </div>
+						  <div class="card">
+							<div class="card-header" id="headingThree" style="background-color: #F8C67B;">
+							  <h2 class="mb-0">
+								<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<table class="table table-light  table-bordered border-primary">
+										<tbody>
+											<tr>
+												<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+											  <td>Edit Proposal for Client</td>
+											  <td>31 June 9:00</td>
+											  <td class="bg-danger">High Priority</td>
+											  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+											</tr>
+										</tbody>	
+									</table>
+								</button>
+							  </h2>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							  <div class="card-body">
+								The original proposal will still run up until your client accepts the child proposal. Once the child proposal has been accepted, it will be set to active and supersede the original proposal.
+							  </div>
+							</div>
+						  </div>
+					  </div>	
+					</section>
+				</div>
+        <!-- task list section -->        
 			</div>
 		</div>
-	</div>	
-
-	<script type="text/javascript" src="fontawesome/js/all.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
+      <script type="text/javascript" src="fontawesome/js/all.js"></script>
+			<script src="https://kit.fontawesome.com/a48d492537.js" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </body>
 </html>

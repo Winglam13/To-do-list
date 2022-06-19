@@ -30,3 +30,18 @@
 	vertical-align: middle!important;
 }
 /*end of reminder section*/
+
+/*task list section*/
+#task-list .accordion>.card>.card-header {
+    border-radius: -15;
+    margin: 0;
+}
+
+#task-list .table-light tbody+tbody, .table-light td, .table-light th, .table-light thead th {
+    border-color: #ffc107;
+}
+
+#task-list .card-header {
+ padding: 0%;
+}
+/*end of task list section*/
