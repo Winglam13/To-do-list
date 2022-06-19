@@ -10,7 +10,13 @@
 	color: white;
 }
 /*end of navbar*/
-
+/* add */
+.add-title {
+    color:white;
+}
+#add-btn {
+    text-align: center;
+}
 /*reminder section*/
 .blink {
 	animation: blink 1s linear infinite;
