@@ -8,12 +8,16 @@
 
 <body>
 
-		<nav class="nav">
-			<a class="nav-link active" href="#">Active</a>
-			<a class="nav-link" href="#">Link</a>
-			<a class="nav-link" href="#">Link</a>
-			<a class="nav-link disabled">Disabled</a>
-		</nav>
+		<nav class="nav mb-5" style="background-color: #8BBDF8;">
+			<a class="nav-link active" href="#">Your works</a>
+			<a class="nav-link" href="#">Catgories</a>
+			<a class="nav-link" href="#">Help</a>
+			<a class="nav-link" href="#">Blog</a>
+			<form>
+			  <button class="btn btn-sm btn-outline-secondary bg-light " type="button; vertical-align:middle;">Sign up</button>
+			  <button class="btn btn-sm btn-outline-secondary bg-light " type="button; vertical-align:middle;">Log in</button>
+			</form>
+		  </nav>
 		<div class="container">
 			<div class="row justify-content-between">
 				<div class="col-sm-3 bg-info">
@@ -23,12 +27,137 @@
 				<div class="col-sm-3 bg-warning">
 					123
 				</div>
-				<div class="col-sm-5 bg-danger">
-					123
+
+				<div class="col-sm-5" style="background-color: #8BBDF8; padding:20px;">
+					<section id="task-list">
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+						  <div class="card-header" id="headingOne" style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #F8C67B;">
+								<table class="table table-light  table-bordered border-primary">
+									<tbody>
+										<tr>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Home Page Review Meeting</td>
+										  <td>13 July 15:00</td>
+										  <td class="bg-warning">Medium Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+					  
+						  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+							<div class="card-body" >
+								View the prior ratings of the reviewees if enabled in the Talent Review meeting template.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+						  <div class="card-header" id="headingTwo" style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #F8C67B;">
+								<table class="table table-light table-bordered border-primary">
+									<tbody>
+										<tr>
+										<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Send Feedback to Designer</td>
+										  <td>13 May 15:00</td>
+										  <td class="bg-success">Low Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+						  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+							<div class="card-body">
+								Be prepared to explain your thinking. Set a process and clear expectations.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+						  <div class="card-header" id="headingThree"  style="background-color: #F8C67B;">
+							<h2 class="mb-0">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<table class="table table-light  table-bordered border-primary">
+									<tbody>
+										<tr>
+											<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+										  <td>Weekly Check In Call</td>
+										  <td>18 May 21:00</td>
+										  <td class="bg-warning">Medium Priority</td>
+										  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+										</tr>
+									</tbody>	
+								</table>
+							  </button>
+							</h2>
+						  </div>
+						  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							<div class="card-body">
+							  Bboost productivity of both managers and employees. Allow for fast resolution of issues.
+							</div>
+						  </div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingThree" style="background-color: #F8C67B;" >
+							  <h2 class="mb-0">
+								<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<table class="table table-light  table-bordered border-primary">
+										<tbody>
+											<tr>
+												<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+											  <td>Approve Invoices</td>
+											  <td>23 July 11:00</td>
+											  <td class="bg-danger">High Priority</td>
+											  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+											</tr>
+										</tbody>	
+									</table>
+								</button>
+							  </h2>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							  <div class="card-body">
+								Check the Invoice for Accuracy. Confirm the Work with the Project Manager.
+							  </div>
+							</div>
+						  </div>
+						  <div class="card">
+							<div class="card-header" id="headingThree" style="background-color: #F8C67B;">
+							  <h2 class="mb-0">
+								<button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<table class="table table-light  table-bordered border-primary">
+										<tbody>
+											<tr>
+												<td style="vertical-align:middle;"><i class="fa-solid fa-circle-user"></i></td>
+											  <td>Edit Proposal for Client</td>
+											  <td>31 June 9:00</td>
+											  <td class="bg-danger">High Priority</td>
+											  <td style="vertical-align:middle;"><i class="fa-solid fa-pen-to-square"></i></td>
+											</tr>
+										</tbody>	
+									</table>
+								</button>
+							  </h2>
+							</div>
+							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+							  <div class="card-body">
+								The original proposal will still run up until your client accepts the child proposal. Once the child proposal has been accepted, it will be set to active and supersede the original proposal.
+							  </div>
+							</div>
+						  </div>
+					  </div>	
+					</section>
 				</div>
 			</div>
 		</div>	
-
+			<script src="https://kit.fontawesome.com/a48d492537.js" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
