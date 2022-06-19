@@ -32,25 +32,28 @@
 							<p class="add-title">Add task</p>
 							<textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
 						  </div>
+							<div class="form-group">
+							  <label for="formGroupExampleInput " class="add-title">Name</label>
+							  <input type="text" class="form-control" id="formGroupExampleInput">
+							</div>
 						</form>
 					</div>
 					<div class="col-sm-12" id="add-start-date">
 						<p class="add-title">Start Date</p>
 						<section class="col-sm-12">
-							<div class="form-group" style="min-width: 200px;">
+							<div class="form-group">
 								<div class='input-group date datetimepicker1' inline="true">
 									<input class="datepicker col-sm-12" width="add-textbox" />
 
 									</span>
 								</div>
 							</div>
-				
 						</section>
 					</div>
 					<div class="col-sm-12" id="add-end-date">
 						<p class="add-title">End Date</p>
 						<section class="col-sm-12">
-							<div class="form-group" style="min-width: 200px;">
+							<div class="form-group">
 								<div class='input-group date datetimepicker1' inline="true">
 									<input class="datepicker1 col-sm-12" width="add-textbox"/>
 
@@ -74,7 +77,17 @@
 						  </div>
 					</div>
 					<div class="col-sm-12 rounded btn" id="Categories" style="padding:10px">
-						<img class="col-sm-12 rounded btn" style="padding-top:10px;width:100%;" id="Categories" src="catgories.png" alt="catgories">
+						<form>
+						<div class="form-group" style="text-align:left!important" >
+							<label for="exampleFormControlSelect1" class="add-title">Status</label>
+							<select class="form-control" id="exampleFormControlSelect1">
+							  <option>TO DO</option>
+							  <option>IN PROGRESS</option>
+							  <option>REVIEW</option>
+							  <option>DONE</option>
+							</select>
+						  </div>
+						</form>
 					</div>
 					<div class="col-sm-12 " id="add-btn" style="padding:10px;">
 						<div class="btn btn-light"><a>Add</a></div>
