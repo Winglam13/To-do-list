@@ -1,3 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+.bg-color {
+	background-color: #8BBDF8;
+}
+
+/* navbar */
+.nav-link {
+	color: white;
+}
+/*end of navbar*/
+
+/*reminder section*/
+.blink {
+	animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+	0% {opacity: 1;}
+	50% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.list-group-item {
+	padding: 0.25rem 0.75rem;
+}
+
+#remind td {
+	vertical-align: middle!important;
+}
+/*end of reminder section*/
+
+/*task list section*/
 #task-list .accordion>.card>.card-header {
     border-radius: -15;
     margin: 0;
@@ -10,4 +44,4 @@
 #task-list .card-header {
  padding: 0%;
 }
-
+/*end of task list section*/
