@@ -5,96 +5,622 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="fontawesome/css/all.css">
 	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
     <!-- navbar -->
-    <nav class="nav justify-content-around mb-5 bg-color">
-		<a class="nav-link font-weight-bold" href="#">To-do App</a>
-		<a class="nav-link d-none d-sm-inline" href="#">Categories</a>
-		<a class="nav-link d-none d-sm-inline" href="#">Help</a>
-		<button class="btn btn-dark"><a>sign in</a></button>
-	</nav>
-	<!-- end of navbar -->
+		<nav class="nav mb-5 bg-blue">
+			<a class="nav-link active" href="#">Your works</a>
+			<a class="nav-link" href="#">Catgories</a>
+			<a class="nav-link" href="#">Help</a>
+			<a class="nav-link" href="#">Blog</a>
+			<button class="btn btn-sm btn-outline-secondary bg-light " type="button">Sign up</button>
+			<button class="btn btn-sm btn-outline-secondary bg-light " type="button">Log in</button>
+		</nav>
+    <!-- end of navbar -->
 
-	<div class="container">
-		<div class="row justify-content-between">
-			<div class="col-sm-3 bg-info">
-				123
-			</div>
+		<!-- main section -->
+		<div class="container">
+			<div class="row justify-content-between">
+				<!-- hidden control for task list section-->
+				<input type="checkbox" id="expand" class="d-none">
 
-			<!-- reminder section -->
-			<div class="col-sm-3 bg-color rounded text-white p-3 my-3 my-sm-0 h-50" id="remind">
-				<h4><i class="fa-solid fa-circle-exclamation"></i> Reminder</h4>
-				<div id="remind-carousel" class="carousel slide" data-ride="carousel">
-				    <div class="carousel-inner">
-				    	<!-- slide 1 -->
-				        <div class="carousel-item active" data-interval="3000">
-				        	<div class="blink bg-danger p-2">You have a task due in 2 days! Don't forget to pay attention.</div>
-				            <div class="card-body">
-				            	<h5 class="card-title">Add Reminder carousel</h5>
-						        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						    </div>
-						    <ul class="list-group list-group-flush text-dark">
-								<li class="list-group-item"><span class="font-weight-bold">created:</span> Tony on Jun 16</li>
-								<li class="list-group-item"><span class="font-weight-bold">category:</span> assessment 2</li>
-							</ul>
-				        </div>
-				        <!-- slide 2 -->
-				        <div class="carousel-item" data-interval="3000">
-				        	<div class="p-2">Your team finished 3 tasks this week! Keep it up!</div>
-				            <ul class="list-group list-group-flush text-dark">
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-user"></i> Add navbar <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-face-smile"></i> Create basic layout <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-								<li class="list-group-item d-flex justify-content-between align-items-center">
-									<i class="fa-solid fa-face-smile"></i> Add stylesheet <i class="fa-solid fa-circle-check text-success"></i>
-								</li>
-							</ul>
-				        </div>
-				        <!-- slide 3 -->
-				        <div class="carousel-item" data-interval="3000">
-				        	<div class="p-2">Take note of your team's 2 upcoming tasks:</div>
-				        	<button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
-				        		<table class="table table-light table-bordered border-primary">
-				        			<tbody>
-				        				<tr>
-				        					<td><i class="fa-solid fa-circle-user"></i></td>
-				        					<td>Feedback to Designer</td>
-									        <td>May 13</td>
-									    </tr>
-								    </tbody>	
-							    </table>
-						    </button>
-						    <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
-				        		<table class="table table-light table-bordered border-primary">
-				        			<tbody>
-				        				<tr>
-				        					<td><i class="fa-solid fa-circle-user"></i></td>
-				        					<td>Feedback to Designer</td>
-									        <td>May 13</td>
-									    </tr>
-								    </tbody>	
-							    </table>
-						    </button>
-				        </div>
-				    </div>
+				<!-- Add task section -->
+				<div class="col-sm-6 col-lg-3 bg-blue rounded h-75" id="add">
+					<div class="col-sm-12"><h4 class="add-title" style="text-align:center;padding-top: 8px;">To Do List </h4></div>
+						<div class="col-sm-12" id="add-textbox">
+							<form>
+							  <div class="form-group">
+								<p class="add-title">Add task</p>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+							  </div>
+								<div class="form-group">
+								  <label for="formGroupExampleInput " class="add-title">Name</label>
+								  <input type="text" class="form-control" id="formGroupExampleInput">
+								</div>
+							</form>
+						</div>
+						<div class="col-sm-12 d-none d-lg-block" id="add-start-date">
+							<p class="add-title">Start Date</p>
+							<section class="col-sm-12">
+								<div class="form-group">
+									<div class='input-group date datetimepicker1' inline="true">
+										<input class="datepicker col-sm-12" width="add-textbox" />
+
+										</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="col-sm-12" id="add-end-date">
+							<p class="add-title">End Date</p>
+							<section class="col-sm-12">
+								<div class="form-group">
+									<div class='input-group date datetimepicker1' inline="true">
+										<input class="datepicker1 col-sm-12" width="add-textbox"/>
+
+										</span>
+									</div>
+								</div>
+					
+							</section>
+						</div>
+						<div class="col-sm-12 rounded" id="Assign-to">
+							<p class="add-title">Assign To</p>
+							<div class="dropdown" style="padding:10px;width: 100%;">
+								<button class="btn btn-light dropdown-toggle" style="width: 100%;"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									People <i class="fa-solid fa-circle-user"></i> 
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								  <a class="dropdown-item" href="#">Mars</a>
+								  <a class="dropdown-item" href="#">Tony</a>
+								  <a class="dropdown-item" href="#">Wing</a>
+								</div>
+							  </div>
+						</div>
+						<div class="col-sm-12 rounded btn" id="Categories" style="padding:10px">
+							<form>
+							<div class="form-group" style="text-align:left!important" >
+								<label for="exampleFormControlSelect1" class="add-title">Status</label>
+								<select class="form-control" id="exampleFormControlSelect1">
+								  <option>TO DO</option>
+								  <option>IN PROGRESS</option>
+								  <option>REVIEW</option>
+								  <option>DONE</option>
+								</select>
+							  </div>
+							</form>
+						</div>
+						<div class="col-sm-12 " id="add-btn" style="padding:10px;">
+							<div class="btn btn-light"><a>Add</a></div>
+						</div>
 				</div>
-			</div>
-			<!-- end of reminder section -->
+				<!-- end of add task section -->
 
-			<div class="col-sm-5 bg-danger">
-				123
-			</div>
-		</div>
-	</div>	
+        <!-- reminder section -->
+        <div class="col-sm-5 col-lg-3 bg-blue rounded text-white p-3 my-3 my-sm-0 h-50" id="remind">
+          <h4><i class="fa-solid fa-circle-exclamation"></i> Reminder</h4>
+          <div id="remind-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- slide 1 -->
+              <div class="carousel-item active" data-interval="3000">
+                <div class="blink bg-danger p-2">You have a task due in 2 days! Don't forget to pay attention.</div>
+                <div class="card-body">
+                  <h5 class="card-title">Add Reminder carousel</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+                <ul class="list-group list-group-flush text-dark">
+                  <li class="list-group-item"><span class="font-weight-bold">created:</span> Tony on Jun 16</li>
+                  <li class="list-group-item"><span class="font-weight-bold">category:</span> assessment 2</li>
+                </ul>
+              </div>
+              <!-- slide 2 -->
+              <div class="carousel-item" data-interval="3000">
+                <div class="p-2">Your team finished 3 tasks this week! Keep it up!</div>
+                <ul class="list-group list-group-flush text-dark">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-user"></i> Add navbar <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-face-smile"></i> Create basic layout <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <i class="fa-solid fa-face-smile"></i> Add stylesheet <i class="fa-solid fa-circle-check text-success"></i>
+                  </li>
+                </ul>
+              </div>
+              <!-- slide 3 -->
+              <div class="carousel-item" data-interval="3000">
+                <div class="p-2">Take note of your team's 2 upcoming tasks:</div>
+                <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
+                  <table class="table table-light table-bordered border-primary">
+                    <tbody>
+                      <tr>
+                        <td><i class="fa-solid fa-circle-user"></i></td>
+                        <td>Feedback to Designer</td>
+                        <td>May 13</td>
+                      </tr>
+                    </tbody>	
+                  </table>
+                </button>
+                <button class="btn btn-link btn-block text-left" type="button" style="background-color: #F8C67B;">
+                  <table class="table table-light table-bordered border-primary">
+                    <tbody>
+                      <tr>
+                        <td><i class="fa-solid fa-circle-user"></i></td>
+                        <td>Feedback to Designer</td>
+                        <td>May 13</td>
+                      </tr>
+                    </tbody>	
+                  </table>
+                </button>
+              </div>
+              <!-- end of carousel-inner -->
+            </div>
+          </div>
+        </div>
+        <!-- end of reminder section -->
+        
+        <!-- task list section -->
+        <!-- hidden controls for filter and sort -->
+        <input type="radio" name="filter" id="reset-filter" class="d-none">
+				<input type="radio" name="filter" id="urgent" class="d-none">
+				<input type="radio" name="filter" id="medium" class="d-none">
+				<input type="radio" name="filter" id="easy" class="d-none">
+				<input type="radio" name="filter" id="completed" class="d-none">
+				<input type="radio" name="filter" id="mars" class="d-none">
+				<input type="radio" name="filter" id="wing" class="d-none">
+				<input type="radio" name="filter" id="tony" class="d-none">
+				<input type="radio" name="sort" id="due" class="d-none">
+				<input type="radio" name="sort" id="priority" class="d-none">
+				<input type="radio" name="sort" id="person" class="d-none">
+				<!-- end of hidden controls -->
 
-	<script type="text/javascript" src="fontawesome/js/all.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+				<div class="col-lg-special bg-blue p-20 mt-0 mt-sm-3 mt-lg-0" id="task-list">
+					<!-- filter and sort buttons -->
+					<div class="row justify-content-between mb-1">
+						<button class="btn btn-success d-none d-lg-block">
+							<label for="expand" class="expand-btn"></label>
+						</button>
+						<h3 class="text-white"><i class="fa-solid fa-rectangle-list"></i> Tasks</h3>
+						<div class="dropdown mx-2">
+							<button class="btn btn-primary dropdown-toggle" type="button" id="filter-btn" data-toggle="dropdown" aria-expanded="false">
+								Filter:  
+							</button>
+							<div class="dropdown-menu" aria-labelledby="filter-btn">
+								<label for="reset-filter" class="dropdown-item font-weight-bold">RESET</label>
+								<span class="dropdown-item non-click">By Urgency: </span> 
+								<label for="urgent" class="dropdown-item text-danger">high</label>
+								<label for="medium" class="dropdown-item text-warning">medium</label>
+								<label for="easy" class="dropdown-item text-success">low</label>
+								<label for="completed" class="dropdown-item text-black-50">completed</label>
+								<span class="dropdown-item non-click">By Person: </span>
+								<label for="wing" class="dropdown-item">Wing</label>
+								<label for="mars" class="dropdown-item">Mars</label>
+								<label for="tony" class="dropdown-item">Tony</label>
+							</div>
+						</div>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="sort-btn" data-toggle="dropdown" aria-expanded="false">
+								Sort: 
+							</button>
+							<div class="dropdown-menu" aria-labelledby="sort-btn">
+								<label for="due" class="dropdown-item">due date(default)</label>
+								<label for="priority" class="dropdown-item">priority</label>
+								<label for="person" class="dropdown-item">person</label>
+							</div>
+						</div>
+					</div>
+					<!-- end of filter and sort buttons -->
 
+					<!-- status header row -->
+					<div class="row justify-content-around text-white status-header-row">
+						<h4>To Do</h4>
+						<h4>In Progress</h4>
+						<h4>Completed</h4>
+					</div>
+					<!-- end of status header row -->
+
+				  <div class="accordion d-flex flex-column" id="accordionExample">
+				  	<!-- card 1 -->
+				  	<input type="radio" id="to-do-1" name="status-1" class="d-none">
+						<input type="radio" id="progress-1" name="status-1" class="d-none">
+						<input type="radio" id="complete-1" name="status-1" class="d-none">
+					  <div class="card card1 mars medium">
+					    <div class="card-header bg-yellow" id="task1">
+						    <button class="btn btn-link btn-block text-left bg-yellow" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+							    <table class="table table-light table-bordered border-primary">
+					  	      <tbody>
+									    <tr>
+							          <td><i class="fa-solid fa-circle-user"></i></td>
+								        <td>Homepage Review Meeting</td>
+								        <td>22 June 15:00</td>
+								        <td class="bg-warning priority-info">Medium Priority</td>
+								        <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+								      </tr>
+							    	</tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-1" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-1">
+							      <label for="to-do-1" class="dropdown-item">To-do</label>
+							      <label for="progress-1" class="dropdown-item">In Progress</label>
+							      <label for="complete-1" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>	
+					    </div>
+					    <div id="collapse1" class="collapse" aria-labelledby="task1" data-parent="#accordionExample">
+						    <div class="card-body">
+						  	  View the prior ratings of the reviewees if enabled in the Talent Review meeting template.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 1 -->
+					  <!-- card 2 -->
+					  <input type="radio" id="to-do-2" name="status-2" class="d-none" checked>
+						<input type="radio" id="progress-2" name="status-2" class="d-none">
+						<input type="radio" id="complete-2" name="status-2" class="d-none">
+					  <div class="card card2 wing easy">
+					    <div class="card-header bg-yellow" id="task2">
+						    <button class="btn btn-link btn-block text-left collapsed bg-yellow" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+							    <table class="table table-light table-bordered border-primary">
+								    <tbody>
+									    <tr>
+									      <td><i class="fa-solid fa-face-smile"></i></td>
+									      <td>Send Feedback to Designer <span class="badge badge-info">new</span></td>
+									      <td>24 June 15:00</td>
+									      <td class="bg-success priority-info">Low Priority</td>
+									      <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+									    </tr>
+								    </tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-2" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-2">
+							      <label for="to-do-2" class="dropdown-item">To-do</label>
+							      <label for="progress-2" class="dropdown-item">In Progress</label>
+							      <label for="complete-2" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+					    </div>
+					    <div id="collapse2" class="collapse" aria-labelledby="task2" data-parent="#accordionExample">
+						    <div class="card-body">
+						  	  Be prepared to explain your thinking. Set a process and clear expectations.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 2 -->
+					  <!-- card 3 -->
+					  <input type="radio" id="to-do-3" name="status-3" class="d-none">
+						<input type="radio" id="progress-3" name="status-3" class="d-none">
+						<input type="radio" id="complete-3" name="status-3" class="d-none">
+					  <div class="card card3 tony medium">
+					    <div class="card-header bg-yellow" id="task3">
+						    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+							    <table class="table table-light  table-bordered border-primary">
+								    <tbody>
+									    <tr>
+										    <td><i class="fa-solid fa-poo"></i></td>
+									      <td>Weekly Check In Call</td>
+									      <td>26 June 21:00</td>
+									      <td class="bg-warning priority-info">Medium Priority</td>
+									      <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+									    </tr>
+								    </tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-3" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-3">
+							      <label for="to-do-3" class="dropdown-item">To-do</label>
+							      <label for="progress-3" class="dropdown-item">In Progress</label>
+							      <label for="complete-3" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+					    </div>
+					    <div id="collapse3" class="collapse" aria-labelledby="task3" data-parent="#accordionExample">
+						    <div class="card-body">
+						      Bboost productivity of both managers and employees. Allow for fast resolution of issues.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 3 -->
+					  <!-- card 4 -->
+					  <input type="radio" id="to-do-4" name="status-4" class="d-none">
+						<input type="radio" id="progress-4" name="status-4" class="d-none">
+						<input type="radio" id="complete-4" name="status-4" class="d-none">
+					  <div class="card card4 mars urgent">
+						  <div class="card-header bg-yellow" id="task4">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+								  <table class="table table-light  table-bordered border-primary">
+									  <tbody>
+										  <tr>
+											  <td><i class="fa-solid fa-circle-user"></i></td>
+										    <td>Approve Invoices <span class="badge badge-info">new</span></td>
+										    <td>28 June 11:00</td>
+										    <td class="bg-danger priority-info">High Priority</td>
+										    <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+										  </tr>
+									  </tbody>	
+								  </table>
+							  </button>
+							  <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-4" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-4">
+							      <label for="to-do-4" class="dropdown-item">To-do</label>
+							      <label for="progress-4" class="dropdown-item">In Progress</label>
+							      <label for="complete-4" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+						  </div>
+						  <div id="collapse4" class="collapse" aria-labelledby="task4" data-parent="#accordionExample">
+						    <div class="card-body">
+							    Check the Invoice for Accuracy. Confirm the Work with the Project Manager.
+						    </div>
+						  </div>
+					  </div>
+					  <!-- end of card 4 -->
+					  <!-- card 5 -->
+					  <input type="radio" id="to-do-5" name="status-5" class="d-none">
+						<input type="radio" id="progress-5" name="status-5" class="d-none">
+						<input type="radio" id="complete-5" name="status-5" class="d-none">
+					  <div class="card card5 wing urgent">
+						  <div class="card-header bg-yellow" id="task5">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+								  <table class="table table-light  table-bordered border-primary">
+									  <tbody>
+										  <tr>
+											  <td><i class="fa-solid fa-face-smile"></i></td>
+										    <td>Edit Proposal for Client</td>
+										    <td>30 June 9:00</td>
+										    <td class="bg-danger priority-info">High Priority</td>
+										    <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+										  </tr>
+									  </tbody>	
+								  </table>
+							  </button>
+							  <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-5" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-5">
+							      <label for="to-do-5" class="dropdown-item">To-do</label>
+							      <label for="progress-5" class="dropdown-item">In Progress</label>
+							      <label for="complete-5" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+						  </div>
+						  <div id="collapse5" class="collapse" aria-labelledby="task5" data-parent="#accordionExample">
+						    <div class="card-body">
+						  	  The original proposal will still run up until your client accepts the child proposal. Once the child proposal has been accepted, it will be set to active and supersede the original proposal.
+						    </div>
+						  </div>
+					  </div>
+					  <!-- end of card 5 -->
+				  	<!-- card 6 -->
+				  	<input type="radio" id="to-do-6" name="status-6" class="d-none">
+						<input type="radio" id="progress-6" name="status-6" class="d-none">
+						<input type="radio" id="complete-6" name="status-6" class="d-none">
+					  <div class="card card6 tony medium">
+					    <div class="card-header bg-yellow" id="task6">
+						    <button class="btn btn-link btn-block text-left bg-yellow" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+							    <table class="table table-light  table-bordered border-primary">
+					  	      <tbody>
+									    <tr>
+							          <td><i class="fa-solid fa-poo"></i></td>
+								        <td>Home Page Review Meeting</td>
+								        <td>2 July 15:00</td>
+								        <td class="bg-warning priority-info">Medium Priority</td>
+								        <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+								      </tr>
+							    	</tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-6" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-6">
+							      <label for="to-do-6" class="dropdown-item">To-do</label>
+							      <label for="progress-6" class="dropdown-item">In Progress</label>
+							      <label for="complete-6" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+					    </div>
+					    <div id="collapse6" class="collapse" aria-labelledby="task6" data-parent="#accordionExample">
+						    <div class="card-body" >
+						  	  View the prior ratings of the reviewees if enabled in the Talent Review meeting template.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 6 -->
+					  <!-- card 7 -->
+					  <input type="radio" id="to-do-7" name="status-7" class="d-none" checked>
+						<input type="radio" id="progress-7" name="status-7" class="d-none">
+						<input type="radio" id="complete-7" name="status-7" class="d-none">
+					  <div class="card card7 mars easy">
+					    <div class="card-header bg-yellow" id="task7">
+						    <button class="btn btn-link btn-block text-left collapsed bg-yellow" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+							    <table class="table table-light table-bordered border-primary">
+								    <tbody>
+									    <tr>
+									      <td><i class="fa-solid fa-circle-user"></i></td>
+									      <td>Send Feedback to Designer</td>
+									      <td>4 July 15:00</td>
+									      <td class="bg-success priority-info">Low Priority</td>
+									      <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+									    </tr>
+								    </tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-7" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-7">
+							      <label for="to-do-7" class="dropdown-item">To-do</label>
+							      <label for="progress-7" class="dropdown-item">In Progress</label>
+							      <label for="complete-7" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+					    </div>
+					    <div id="collapse7" class="collapse" aria-labelledby="task7" data-parent="#accordionExample">
+						    <div class="card-body">
+						  	  Be prepared to explain your thinking. Set a process and clear expectations.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 7 -->
+					  <!-- card 8 -->
+					  <input type="radio" id="to-do-8" name="status-8" class="d-none">
+						<input type="radio" id="progress-8" name="status-8" class="d-none">
+						<input type="radio" id="complete-8" name="status-8" class="d-none">
+					  <div class="card card8 wing medium">
+					    <div class="card-header bg-yellow" id="task8">
+						    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+							    <table class="table table-light  table-bordered border-primary">
+								    <tbody>
+									    <tr>
+										    <td><i class="fa-solid fa-face-smile"></i></td>
+									      <td>Weekly Check In Call</td>
+									      <td>6 July 21:00</td>
+									      <td class="bg-warning priority-info">Medium Priority</td>
+									      <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+									    </tr>
+								    </tbody>	
+							    </table>
+						    </button>
+						    <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-9" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-9">
+							      <label for="to-do-9" class="dropdown-item">To-do</label>
+							      <label for="progress-9" class="dropdown-item">In Progress</label>
+							      <label for="complete-9" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+					    </div>
+					    <div id="collapse8" class="collapse" aria-labelledby="task8" data-parent="#accordionExample">
+						    <div class="card-body">
+						      Bboost productivity of both managers and employees. Allow for fast resolution of issues.
+						    </div>
+					    </div>
+					  </div>
+					  <!-- end of card 8 -->
+					  <!-- card 9 -->
+					  <input type="radio" id="to-do-9" name="status-9" class="d-none">
+						<input type="radio" id="progress-9" name="status-9" class="d-none">
+						<input type="radio" id="complete-9" name="status-9" class="d-none" checked>
+					  <div class="card card9 tony completed">
+						  <div class="card-header bg-yellow" id="task9">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+								  <table class="table table-light  table-bordered border-primary">
+									  <tbody>
+										  <tr>
+											  <td><i class="fa-solid fa-poo"></i></td>
+										    <td>Approve Invoices</td>
+										    <td>16 June 11:00</td>
+										    <td class="priority-info">Done <i class="fa-solid fa-circle-check text-success"></i></td>
+										    <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+										  </tr>
+									  </tbody>	
+								  </table>
+							  </button>
+							  <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-9" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-9">
+							      <label for="to-do-9" class="dropdown-item">To-do</label>
+							      <label for="progress-9" class="dropdown-item">In Progress</label>
+							      <label for="complete-9" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+						  </div>
+						  <div id="collapse9" class="collapse" aria-labelledby="task9" data-parent="#accordionExample">
+						    <div class="card-body">
+							    Check the Invoice for Accuracy. Confirm the Work with the Project Manager.
+						    </div>
+						  </div>
+					  </div>
+					  <!-- end of card 9 -->
+					  <!-- card 10 -->
+					  <input type="radio" id="to-do-10" name="status-10" class="d-none">
+						<input type="radio" id="progress-10" name="status-10" class="d-none">
+						<input type="radio" id="complete-10" name="status-10" class="d-none" checked>
+					  <div class="card card10 mars completed">
+						  <div class="card-header bg-yellow" id="task10">
+							  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+								  <table class="table table-light  table-bordered border-primary">
+									  <tbody>
+										  <tr>
+											  <td><i class="fa-solid fa-circle-user"></i></td>
+										    <td>Edit Proposal for Client</td>
+										    <td>18 June 9:00</td>
+										    <td class="priority-info">Done <i class="fa-solid fa-circle-check text-success"></i></td>
+										    <td class="edit-btn"><i class="fa-solid fa-pen-to-square"></i></td>
+										  </tr>
+									  </tbody>	
+								  </table>
+							  </button>
+							  <div class="dropdown d-none status-btn">
+						     	<button class="btn btn-secondary dropdown-toggle" type="button" id="status-btn-10" data-toggle="dropdown" aria-expanded="false">
+						        <i class="fa-solid fa-pen-to-square"></i>
+							    </button>
+							    <div class="dropdown-menu" aria-labelledby="status-btn-10">
+							      <label for="to-do-10" class="dropdown-item">To-do</label>
+							      <label for="progress-10" class="dropdown-item">In Progress</label>
+							      <label for="complete-10" class="dropdown-item">Completed</label>
+							    </div>
+							  </div>
+						  </div>
+						  <div id="collapse10" class="collapse" aria-labelledby="task10" data-parent="#accordionExample">
+						    <div class="card-body">
+						  	  The original proposal will still run up until your client accepts the child proposal. Once the child proposal has been accepted, it will be set to active and supersede the original proposal.
+						    </div>
+						  </div>
+					  </div>
+					  <!-- end of card 10 -->
+				  </div>
+				</div>
+        <!-- task list section -->
+      </div>
+    </div>
+    <!-- end of main section -->
+
+		<!-- datepicker script -->
+		<section>
+			<script>
+				$('.datepicker').datepicker({
+					uiLibrary: 'bootstrap4'
+				});
+			</script>
+			<script>
+		$('.datepicker1').datepicker({
+					uiLibrary: 'bootstrap4'
+				});
+			
+			</script>
+		</section> 
+		<!-- end of datepicker script -->
+
+      <script type="text/javascript" src="fontawesome/js/all.js"></script>
+			<script src="https://kit.fontawesome.com/a48d492537.js" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </body>
 </html>
