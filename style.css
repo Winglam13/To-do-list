@@ -48,11 +48,9 @@ td {
 .list-group-item {
 	padding: 0.25rem 0.75rem;
 }
-
 /*end of reminder section*/
 
 /*task list section*/
-
 #task-list .accordion>.card>.card-header {
     border-radius: -15;
     margin: 0;
@@ -102,11 +100,9 @@ td {
 		min-width: 450px;
 	}
 }
-
 /*end of task list section*/
 
 /*expanding task list*/
-
 .col-lg-special {
 	width: 100%;
 }
@@ -214,11 +210,10 @@ td {
 		grid-column: 3 / 4;
 	}
 }
+/* end of expanding task list*/
 
 /* custom spacing classes */
-
 .p-20 {
 	padding: 20px;
 }
-
 /* end of custom spacing classes */
