@@ -12,13 +12,15 @@
 
 <body>
     <!-- navbar -->
-		<nav class="nav mb-5 bg-blue">
-			<a class="nav-link active" href="#">Your works</a>
-			<a class="nav-link" href="#">Catgories</a>
-			<a class="nav-link" href="#">Help</a>
-			<a class="nav-link" href="#">Blog</a>
-			<button class="btn btn-sm btn-outline-secondary bg-light " type="button">Sign up</button>
-			<button class="btn btn-sm btn-outline-secondary bg-light " type="button">Log in</button>
+		<nav class="nav mb-5 bg-blue justify-content-around">
+			<a class="nav-link active" href="">Your works</a>
+			<a class="nav-link" href="">Catgories</a>
+			<a class="nav-link" href="">Help</a>
+			<a class="nav-link" href="">Blog</a>
+			<div class="d-flex align-items-center">
+				<button class="btn btn-sm btn-outline-secondary bg-light " type="button">Sign up</button>
+			  <button class="btn btn-sm btn-outline-secondary bg-light " type="button">Log in</button>
+			</div>
 		</nav>
     <!-- end of navbar -->
 
@@ -30,7 +32,7 @@
 
 				<!-- Add task section -->
 				<div class="col-sm-6 col-lg-3 bg-blue rounded h-75" id="add">
-					<div class="col-sm-12"><h4 class="add-title" style="text-align:center;padding-top: 8px;">To Do List </h4></div>
+					<div class="col-sm-12"><h4 class="add-title text-center" style="padding-top: 8px;">To Do List </h4></div>
 						<div class="col-sm-12" id="add-textbox">
 							<form>
 							  <div class="form-group">
@@ -70,8 +72,8 @@
 						</div>
 						<div class="col-sm-12 rounded" id="Assign-to">
 							<p class="add-title">Assign To</p>
-							<div class="dropdown" style="padding:10px;width: 100%;">
-								<button class="btn btn-light dropdown-toggle" style="width: 100%;"type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<div class="dropdown w-100" style="padding:10px;">
+								<button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									People <i class="fa-solid fa-circle-user"></i> 
 								</button>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -179,7 +181,7 @@
 				<input type="radio" name="sort" id="person" class="d-none">
 				<!-- end of hidden controls -->
 
-				<div class="col-lg-special bg-blue p-20 mt-0 mt-sm-3 mt-lg-0" id="task-list">
+				<div class="col-lg-special bg-blue p-20 mt-0 mt-sm-4 mt-lg-0" id="task-list">
 					<!-- filter and sort buttons -->
 					<div class="row justify-content-between mb-1">
 						<button class="btn btn-success d-none d-lg-block">
@@ -597,7 +599,7 @@
 					  <!-- end of card 10 -->
 				  </div>
 				</div>
-        <!-- task list section -->
+        <!-- end of task list section -->
       </div>
     </div>
     <!-- end of main section -->
